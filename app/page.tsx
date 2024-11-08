@@ -1,9 +1,17 @@
 import React from "react";
 
+/* import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+  } from "@/components/ui/dropdown-menu"
+   */
 const page = () => (
     <>
-        <h1 className="h1-bold background-light850_dark100">Welcome to the next.js app</h1>
-        <h1 className="h1-bold background-light850_dark100 font-space-grotesk">Welcome to the next.js app</h1>
+        
     </>
 );
 
