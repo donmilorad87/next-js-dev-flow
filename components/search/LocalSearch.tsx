@@ -15,20 +15,20 @@ interface Props {
 const LocalSearch = ({ route, imgSrc, placeholder, otherClases }: Props) => {
   const pathname = usePathname();
   const router = useRouter();
-  const searcParams = useSearchParams();
-  const query = searcParams.get("query") || "";
+  const searchParams = useSearchParams();
+  const query = searchParams.get("query") || "";
 
   const [searchQuery, setSearchQuery] = useState<string>(query);
 
   useEffect(() => {
     const delayDevaunceFn = setTimeout(() => {
       if (searchQuery) {
-        const newUrl = formUrlQuery({ params: searcParams.toString(), key: "query", value: searchQuery });
+        const newUrl = formUrlQuery({ params: searchParams.toString(), key: "query", value: searchQuery });
         router.push(newUrl, { scroll: false });
       } else {
         if (pathname === route) {
           const newUrl = removeKeysFromUrlQuery({
-            params: searcParams.toString(),
+            params: searchParams.toString(),
             keysToRemove: ["query"],
           });
           router.push(newUrl, { scroll: false });
@@ -37,7 +37,7 @@ const LocalSearch = ({ route, imgSrc, placeholder, otherClases }: Props) => {
     }, 1000);
 
     return () => clearTimeout(delayDevaunceFn);
-  }, [searchQuery, router, route, searcParams, pathname]);
+  }, [searchQuery, router, route, searchParams, pathname]);
 
   return (
     <div className={`background-light800_darkgradient flex min-h-[56px] grow items-center gap-4 rounded-[10px] px-4 ${otherClases}`}>
