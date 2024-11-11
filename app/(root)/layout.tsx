@@ -6,10 +6,7 @@ import RightSidebar from '@/components/ui/navigation/navbar/RightSidebar';
 const RootLayout = ({children}:{children:ReactNode}) => {
   return (
     <main className='background-light850_dark100 relative'>
-      <head>
-      <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-
-      </head>
+     
         <Navbar />
         <div className='flex'>
           <LeftSidebar/>
