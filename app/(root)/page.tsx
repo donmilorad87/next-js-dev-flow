@@ -1,8 +1,11 @@
 import { auth, signOut } from "@/auth";
+import QuestionCard from "@/components/cards/QuestionCard";
+
 import HomeFilter from "@/components/filters/HomeFilter";
 import LocalSearch from "@/components/search/LocalSearch";
 import { Button } from "@/components/ui/button";
 import ROUTES from "@/constants/routes";
+import { Question } from "@/types/global";
 import console from "console";
 import Link from "next/link";
 import React from "react";
@@ -16,7 +19,7 @@ import React from "react";
     DropdownMenuTrigger,
   } from "@/components/ui/dropdown-menu"
    */
-const questions = [
+const questions: Question[] = [
   {
     _id: "1",
     title: "How to learn JavaScript?",
@@ -34,6 +37,7 @@ const questions = [
     author: {
       _id: "1",
       name: "John Doe",
+      image: "/images/avatar.jpg",
     },
     upvoetes: 10,
     answers: 5,
@@ -57,11 +61,12 @@ const questions = [
     author: {
       _id: "1",
       name: "John Doe",
+      image: "/images/avatar.jpg",
     },
     upvoetes: 10,
     answers: 5,
     views: 20,
-    createdAt: new Date(),
+    createdAt: new Date("2024-07-11"),
   },
   {
     _id: "3",
@@ -80,11 +85,12 @@ const questions = [
     author: {
       _id: "1",
       name: "John Doe",
+      image: "/images/avatar.jpg",
     },
     upvoetes: 10,
     answers: 5,
     views: 20,
-    createdAt: new Date(),
+    createdAt: new Date("2023-01-01"),
   },
 ];
 
@@ -116,7 +122,7 @@ const Home = async ({ searchParams }: SearchParams) => {
       <HomeFilter />
       <div className="mt-10 flex w-full flex-col gap-6">
         {filteredQuestions.map((question) => (
-          <h1 key={question._id}>{question.title}</h1>
+          <QuestionCard key={question._id} question={question} />
         ))}
       </div>
     </>
